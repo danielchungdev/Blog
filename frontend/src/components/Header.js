@@ -5,7 +5,6 @@ const outerContainer = {
     margin: '5% 0%'
 }
 
-
 export default function Header() {
     return (
         <Box sx={outerContainer}>

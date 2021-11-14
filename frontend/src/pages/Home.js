@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import PostCards from '../components/PostCards'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
-import { Container, Grid, Pagination, Typography, Box } from '@mui/material'
+import { Container, Grid, Pagination, Typography } from '@mui/material'
 import Data from '../assets/test.json'
 
 const paginationStyles = {

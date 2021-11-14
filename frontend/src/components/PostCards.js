@@ -6,12 +6,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const cardStyle = {
-    '&:hover': {
-        background: "f00"
-    }
-}
-
 export default function PostCards(props) {
 
     const {data} = props
