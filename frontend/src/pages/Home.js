@@ -17,6 +17,7 @@ export default function Home() {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(true)
     const [allPosts, setAllPosts] = useState([])
+    const [totalPaginations, setTotalPaginations] = useState(0)
 
     useEffect(() => {
         setAllPosts(Data)
@@ -25,9 +26,11 @@ export default function Home() {
     }, [loading])
 
     const pagination = (page) => {
+        let totalPaginations = allPosts.length
         let lastPost = 9 * page
         let firstPost = lastPost - 9
         setPosts(allPosts.slice(firstPost, lastPost))
+        setTotalPaginations(Math.ceil(totalPaginations / 9))
     }
 
     const nothingToSeeHere = (
@@ -37,20 +40,22 @@ export default function Home() {
     )
 
     const postsFlex =(
-        <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}}>
-            {posts.map((item, index) => (
-                <PostCards data={item} key={index}/>
-            ))}
-        </Grid> 
-        )
+        <div>
+            <Container maxWidth="lg" sx={paginationStyles}>
+                <Pagination count={totalPaginations} variant="outlined" defaultPage={1} color="primary" onChange={(event, value) => pagination(value)}/>
+            </Container>
+            <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}}>
+                {posts.map((item, index) => (
+                    <PostCards data={item} key={index}/>
+                ))}
+            </Grid> 
+        </div>
+    )
 
     return (
         <ThemeProvider theme={DchungTheme}>
             <Container maxWidth="lg" wrap="wrap" minHeight="lg">
                <Header/>
-                <Container maxWidth="lg" sx={paginationStyles}>
-                    <Pagination count={10} variant="outlined" defaultPage={1} color="primary" onChange={(event, value) => pagination(value)}/>
-                </Container>
                 {loading ? <Typography>Loading...</Typography> : postsFlex}
                 {posts.length < 1 ? nothingToSeeHere : null}
             </Container>
