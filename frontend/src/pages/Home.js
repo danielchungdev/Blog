@@ -21,9 +21,18 @@ export default function Home() {
     const [totalPaginations, setTotalPaginations] = useState(0)
 
     useEffect(() => {
-        setAllPosts(Data)
         pagination(1)
-        setLoading(false)
+        fetch('http://localhost:4000/getposts', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+        })
+        .then(res => res.json())
+        .then(data => {
+            setAllPosts(data)
+            setLoading(false)
+        })
     }, [loading])
 
     const pagination = (page) => {

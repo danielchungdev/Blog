@@ -22,7 +22,7 @@ export default function PostCards(props) {
             <Card variant="outlined" item>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {data.id}
+                            {data.number}
                         </Typography>
                         <Typography variant="h5" display="inline-block" component="div">
                             {data.title}

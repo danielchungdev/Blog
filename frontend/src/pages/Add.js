@@ -1,35 +1,33 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from '../components/Header'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Container, Stack, TextField, TextareaAutosize, Button, Alert, Snackbar } from '@mui/material'
-
-const postButtonStyle = {
-    minWidth: '300px'
-}
+import { Container, Stack, TextField, TextareaAutosize, Button, Alert, Snackbar, Typography } from '@mui/material'
 
 export default function Add() {
-    const date = Date.now()
+
+    const [date, setDate] = useState("")
     const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
     const [body, setBody] = useState([{text: ""}])
-    const [number, setNumber] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const [emptyError, setEmptyError] = useState(false)
-    const [deleteError, setDeleteError] = useState(false)
+    const [open, setOpen] = useState(false); // Success
+    const [emptyError, setEmptyError] = useState(false) //Empty fields
+    const [wrongCredentialsError, setWrongCredentialsError] = useState(false) //wrong credentials
+    const [deleteError, setDeleteError] = useState(false) //delete too many paragraphs
+
+    useEffect(()=>{
+        formatDate()
+    }, [])
 
     const position = {
         vertical: "top",
         horizontal: "center"
     }
-    const [open, setOpen] = useState(false);
-
-    const handleClick = () => {
-        setOpen(true);
-    };
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -38,22 +36,30 @@ export default function Add() {
         setOpen(false);
         setEmptyError(false);
         setDeleteError(false);
+        setWrongCredentialsError(false)
     };
 
     const resetErrors = () => {
-        setEmptyError(!emptyError);
+        setOpen(false);
+        setEmptyError(false);
+        setDeleteError(false);
+        setWrongCredentialsError(false)
     }
 
     const handleErrors = () => {
-        if (title === "" || body === ""){
+        if (title === "" || body === "" || description === "" || username === "" || password === ""){
             setEmptyError(true)
+            return false
+        }
+        else{
+            return true
         }
     }
 
     const handleChange = (index, e) => {
         let bodyValues = body;
-        bodyValues[index][e.target.text] = e.target.value
-        setBody({bodyValues});
+        bodyValues[index].text = e.target.value
+        setBody(bodyValues);
     }
 
     const addParagraphs = () => {
@@ -74,15 +80,42 @@ export default function Add() {
     const handlePost = (e) => {
         e.preventDefault()
         resetErrors()
-        const post = {
-            user: username,
-            password: password,
-            title: title,
-            date: date,
-            body: body
+        if (handleErrors()){
+            fetch('http://localhost:4000/createpost', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password, 
+                    title,
+                    description,
+                    date,
+                    body
+                })
+            })
+            .then((res) => {
+                if (res.status === 201){
+                    setOpen(true)
+                }
+                if (res.status === 401){
+                    setWrongCredentialsError(true)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         }
-        console.log(post)
-        handleClick()
+    }
+
+    const formatDate = () => {
+        let months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        setDate(`${months[mm - 1]} ${dd}, ${yyyy}`)
     }
 
     return (
@@ -90,9 +123,10 @@ export default function Add() {
             <Container maxWidth="lg" sx={{marginBottom: "5%"}}>
                 <Header/>
                 <Container maxWidth="md">
-                    <TextField id="standard-basic" label="Blog Number" variant="standard" onChange={(e) => setNumber(e.target.value)}/>
-                    <Stack spacing={4}>
+                    <Stack spacing={2}>
                         <TextField id="standard-basic" label="Title" variant="standard" onChange={(e) => setTitle(e.target.value)}/>
+                        <Typography>Date: {date}</Typography>
+                        <TextField id="standard-basic" label="Description" variant="standard" onChange={e => setDescription(e.target.value)}/>
                         {
                             body.map((element, index) => (
                                 <TextareaAutosize
@@ -110,11 +144,10 @@ export default function Add() {
                             <Button onClick={()=> addParagraphs()} color="success"><AddIcon/></Button>
                             <Button onClick={() => removeParagraph()} color="error"><DeleteIcon/></Button>
                         </Stack>
-
                         <Stack direction='row' spacing={10} justifyContent="space-between">
                             <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)}/>
-                            <TextField label="Password" type="password" onChange={(e) => setPassword(e.target.password)}/>
-                            <Button variant="outlined" onClick={handlePost} sx={postButtonStyle}>Post</Button>
+                            <TextField label="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                            <Button variant="outlined" onClick={handlePost} sx={{width: '30%'}}>Post</Button>
                         </Stack>
                     </Stack>
                 </Container>
@@ -126,6 +159,11 @@ export default function Add() {
                 <Snackbar open={emptyError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
                     <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                         Looks like there was an error try again!
+                    </Alert>
+                </Snackbar>
+                <Snackbar open={wrongCredentialsError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
+                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                        Wrong credentials!
                     </Alert>
                 </Snackbar>
                 <Snackbar open={deleteError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
