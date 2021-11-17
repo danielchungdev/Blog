@@ -14,6 +14,7 @@ const paginationStyles = {
 
 export default function Home() {
 
+    const postPerPage = 9
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(true)
     const [allPosts, setAllPosts] = useState([])
@@ -27,10 +28,10 @@ export default function Home() {
 
     const pagination = (page) => {
         let totalPaginations = allPosts.length
-        let lastPost = 9 * page
-        let firstPost = lastPost - 9
+        let lastPost = postPerPage * page
+        let firstPost = lastPost - postPerPage
         setPosts(allPosts.slice(firstPost, lastPost))
-        setTotalPaginations(Math.ceil(totalPaginations / 9))
+        setTotalPaginations(Math.ceil(totalPaginations / postPerPage))
     }
 
     const nothingToSeeHere = (
@@ -44,7 +45,7 @@ export default function Home() {
             <Container maxWidth="lg" sx={paginationStyles}>
                 <Pagination count={totalPaginations} variant="outlined" defaultPage={1} color="primary" onChange={(event, value) => pagination(value)}/>
             </Container>
-            <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}}>
+            <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}} marginBottom={ 5 }>
                 {posts.map((item, index) => (
                     <PostCards data={item} key={index}/>
                 ))}
@@ -54,7 +55,7 @@ export default function Home() {
 
     return (
         <ThemeProvider theme={DchungTheme}>
-            <Container maxWidth="lg" wrap="wrap" minHeight="lg">
+            <Container maxWidth="lg" wrap="wrap">
                <Header/>
                 {loading ? <Typography>Loading...</Typography> : postsFlex}
                 {posts.length < 1 ? nothingToSeeHere : null}

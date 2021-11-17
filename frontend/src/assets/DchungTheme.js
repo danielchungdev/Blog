@@ -20,6 +20,8 @@ export const DchungTheme = createTheme({
     },
     h2: {
       fontFamily: 'Inconsolata',
+      fontWeight: 400,
+
     },
   },
 });

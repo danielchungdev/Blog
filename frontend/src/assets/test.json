@@ -1,482 +1,90 @@
 [
     {
-        "id": 1,
+        "number": 1,
+        "id": 125234,
         "title": "creating a blog web app with react",
         "date": "Nov 14 , 2021",
-        "description": "Using the mern stack and material ui as component library."
+        "description": "Using the mern stack and material ui as component library.",
+        "body": " this is the body"
     },
     {
-        "id": 2,
+        "number": 2,
+        "id": 2234,
         "title": "Attempting to learn Typescript",
         "date": "Nov 13 , 2021",
-        "description": "Understanding typescript from a javascript basis"
+        "description": "Understanding typescript from a javascript basis",
+        "body": " this is the body"
     },
     {
-        "id": 3,
+        "number": 3,
+        "id": 312512,
         "title": "Enrolling to classes",
         "date": "Nov 12 , 2021",
-        "description": "My rit experience attempting to enroll into classes for spring 2022"
+        "description": "My rit experience attempting to enroll into classes for spring 2022",
+        "body": " this is the body"
     },
     {
-        "id": 4,
+        "number": 4,
+        "id": 42134125,
         "title": "Dealing with bad group mates",
         "date": "Nov 11 , 2021",
-        "description": "My story of what bad group mates and how to deal with them"
+        "description": "My story of what bad group mates and how to deal with them",
+        "body": " this is the body"
     },
     {
-        "id": 5,
+        "number": 5,
+        "id": 512341,
         "title": "The day I saved a group project by myself",
         "date": "Nov 10 , 2021",
-        "description": "How I coded an entire application in java to save my grade"
+        "description": "How I coded an entire application in java to save my grade",
+        "body": " this is the body"
     },
     {
-        "id": 6,
+        "number": 6,
+        "id": 6123412,
         "title": "How I started Coding",
         "date": "Nov 9 , 2021",
-        "description": "The step by step through my 5 years of coding experience."
+        "description": "The step by step through my 5 years of coding experience.",
+        "body": " this is the body"
     },
     {
-        "id": 7,
+        "number": 7,
+        "id": 7124,
         "title": "Passing the google interview",
         "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
+        "description": "The skills that you need to pass the google interview process.",
+        "body": " this is the body"
     },
     {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
+        "number": 8,
+        "id": 9135,
         "title": "tests for jsx inside a string",
         "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
+        "description": "Figuring out how to style my blog.",
+        "body": " this is the body"
     },
     {
-        "id": 10,
+        "number": 9,
+        "id": 101535,
         "title": "new tech creating",
         "date": "Nov 5 , 2021",
-        "description": "idk man."
+        "description": "idk man.",
+        "body": " this is the body"
     },
     {
-        "id": 1,
-        "title": "creating a blog web app with react",
-        "date": "Nov 14 , 2021",
-        "description": "Using the mern stack and material ui as component library."
-    },
-    {
-        "id": 2,
-        "title": "Attempting to learn Typescript",
-        "date": "Nov 13 , 2021",
-        "description": "Understanding typescript from a javascript basis"
-    },
-    {
-        "id": 3,
-        "title": "Enrolling to classes",
-        "date": "Nov 12 , 2021",
-        "description": "My rit experience attempting to enroll into classes for spring 2022"
-    },
-    {
-        "id": 4,
-        "title": "Dealing with bad group mates",
-        "date": "Nov 11 , 2021",
-        "description": "My story of what bad group mates and how to deal with them"
-    },
-    {
-        "id": 5,
-        "title": "The day I saved a group project by myself",
-        "date": "Nov 10 , 2021",
-        "description": "How I coded an entire application in java to save my grade"
-    },
-    {
-        "id": 6,
-        "title": "How I started Coding",
-        "date": "Nov 9 , 2021",
-        "description": "The step by step through my 5 years of coding experience."
-    },
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
+        "number": 10,
+        "id": 101535,
         "title": "new tech creating",
         "date": "Nov 5 , 2021",
-        "description": "idk man."
+        "description": "idk man.",
+        "body": " this is the body"
     },
     {
-        "id": 1,
-        "title": "creating a blog web app with react",
-        "date": "Nov 14 , 2021",
-        "description": "Using the mern stack and material ui as component library."
-    },
-    {
-        "id": 2,
-        "title": "Attempting to learn Typescript",
-        "date": "Nov 13 , 2021",
-        "description": "Understanding typescript from a javascript basis"
-    },
-    {
-        "id": 3,
-        "title": "Enrolling to classes",
-        "date": "Nov 12 , 2021",
-        "description": "My rit experience attempting to enroll into classes for spring 2022"
-    },
-    {
-        "id": 4,
-        "title": "Dealing with bad group mates",
-        "date": "Nov 11 , 2021",
-        "description": "My story of what bad group mates and how to deal with them"
-    },
-    {
-        "id": 5,
-        "title": "The day I saved a group project by myself",
-        "date": "Nov 10 , 2021",
-        "description": "How I coded an entire application in java to save my grade"
-    },
-    {
-        "id": 6,
-        "title": "How I started Coding",
-        "date": "Nov 9 , 2021",
-        "description": "The step by step through my 5 years of coding experience."
-    },
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
+        "number": 11,
+        "id": 101535,
         "title": "new tech creating",
         "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
-    }
-    ,
-    {
-        "id": 7,
-        "title": "Passing the google interview",
-        "date": "Nov 8 , 2021",
-        "description": "The skills that you need to pass the google interview process."
-    },
-    {
-        "id": 8,
-        "title": "My clean setup",
-        "date": "Nov 7 , 2021",
-        "description": "What my setup has"
-    },
-    {
-        "id": 9,
-        "title": "tests for jsx inside a string",
-        "date": "Nov 6 , 2021",
-        "description": "Figuring out how to style my blog."
-    },
-    {
-        "id": 10,
-        "title": "new tech creating",
-        "date": "Nov 5 , 2021",
-        "description": "idk man."
+        "description": "idk man.",
+        "body": " this is the body"
     }
 ]

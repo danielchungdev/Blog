@@ -5,10 +5,17 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostCards(props) {
 
     const {data} = props
+
+    const navigate = useNavigate()
+
+    const goToPost = () => {
+        navigate("/post/" + data.number)
+    }
 
     return (
         <Grid item xs={4} lg={4} md={3}> 
@@ -28,7 +35,7 @@ export default function PostCards(props) {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small">Read More</Button>
+                        <Button onClick={goToPost} size="small">Read More</Button>
                     </CardActions>
             </Card>
         </Grid>
