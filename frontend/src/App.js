@@ -3,7 +3,7 @@ import Add from './pages/Add';
 import Home from './pages/Home';
 import Post from './pages/Post';
 import NotFound from './pages/NotFound'
-import Resume from './pages/Resume'
+// import Resume from './pages/Resume'
 
 function App() {
   	return (
