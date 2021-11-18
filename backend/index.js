@@ -5,7 +5,7 @@ const express = require('express')
 const cors = require('cors')
 
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000
 const { MongoClient } = require('mongodb');
 const uri = process.env.URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
