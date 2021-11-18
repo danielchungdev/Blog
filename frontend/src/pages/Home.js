@@ -4,7 +4,7 @@ import PostCards from '../components/PostCards'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
 import { Container, Grid, Pagination, Typography } from '@mui/material'
-import Data from '../assets/test.json'
+// import Data from '../assets/test.json' //test purposes
 
 const paginationStyles = {
     display:"flex",
@@ -55,9 +55,9 @@ export default function Home() {
             <Container maxWidth="lg" sx={paginationStyles}>
                 <Pagination count={totalPaginations} variant="outlined" defaultPage={1} color="primary" onChange={(event, value) => pagination(value)}/>
             </Container>
-            <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}} marginBottom={ 5 }>
+            <Grid container spacing={{lg:6, md: 4, xs:2}} columns={{lg:12, md: 9, xs: 4}} marginBottom={ 5 } >
                 {posts.map((item, index) => (
-                    <PostCards data={item} key={index}/>
+                    <PostCards data={item} key={index} index={index}/>
                 ))}
             </Grid> 
         </div>

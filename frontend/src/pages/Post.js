@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
-import { Container, Typography, Stack, LinearProgress } from '@mui/material'
+import { Container, Typography, Stack, LinearProgress, Breadcrumbs, Link } from '@mui/material'
 import { useParams, useNavigate } from 'react-router-dom'
 
 export default function Post(props) {
 
     let { id } = useParams()
+    
     const [post, setPost] = useState(null)
 
     useEffect(() => {
@@ -37,8 +38,11 @@ export default function Post(props) {
         <ThemeProvider theme={DchungTheme}>
             {post === null ? <LinearProgress/> : 
                 <Container maxWidth="lg">
-                    <Stack direction="row" justifyContent="space-between" marginBottom={20}>
-                        <Typography>POST: {post.number}</Typography>
+                    <Stack direction="row" justifyContent="space-between" marginBottom={15}>
+                        <Breadcrumbs>
+                            <Link underline="hover" color="inherit" href="/"><Typography>HOME</Typography></Link>
+                            <Typography color="primary">POST: {post.number}</Typography>
+                        </Breadcrumbs>
                         <Typography>ID: {post.id}</Typography>
                     </Stack>
                     <Typography >TITLE:</Typography>

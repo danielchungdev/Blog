@@ -4,7 +4,8 @@ import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Container, Stack, TextField, TextareaAutosize, Button, Alert, Snackbar, Typography } from '@mui/material'
+import { Container, Stack, TextField, TextareaAutosize, Button, Alert, Snackbar, Typography, Tooltip, IconButton } from '@mui/material'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Add() {
 
@@ -98,6 +99,9 @@ export default function Add() {
             .then((res) => {
                 if (res.status === 201){
                     setOpen(true)
+                    setTimeout(()=>{
+                        navigate("/")
+                    }, 3000)
                 }
                 if (res.status === 401){
                     setWrongCredentialsError(true)
@@ -109,6 +113,8 @@ export default function Add() {
         }
     }
 
+    const navigate = useNavigate()
+
     const formatDate = () => {
         let months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
         let today = new Date();
@@ -117,6 +123,39 @@ export default function Add() {
         let yyyy = today.getFullYear();
         setDate(`${months[mm - 1]} ${dd}, ${yyyy}`)
     }
+
+    //Alerts go here. Probably should refactor into dynamic alerts.
+    const postCreatedAlert = (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
+            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                Post was created! You will be redirected shortly.
+            </Alert>
+        </Snackbar>
+    )
+    
+    const postEmptyAlert = (
+        <Snackbar open={emptyError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
+            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                Looks like there was an error try again!
+            </Alert>
+        </Snackbar>
+    )
+
+    const wrongCredentialsAlert = (
+        <Snackbar open={wrongCredentialsError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
+            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                Wrong credentials!
+            </Alert>
+        </Snackbar>
+    )
+
+    const deleteParagraphAlert = (
+        <Snackbar open={deleteError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
+            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                Can't delete all paragraphs!
+            </Alert>
+        </Snackbar>
+    )
 
     return (
         <ThemeProvider theme={DchungTheme}>
@@ -141,8 +180,16 @@ export default function Add() {
                         }
                         
                         <Stack direction="row" justifyContent="center">
-                            <Button onClick={()=> addParagraphs()} color="success"><AddIcon/></Button>
-                            <Button onClick={() => removeParagraph()} color="error"><DeleteIcon/></Button>
+                            <Tooltip title="Add paragraph">
+                                <IconButton onClick={()=> addParagraphs()} color="success">
+                                    <AddIcon/>
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Delete paragraph">
+                                <IconButton onClick={() => removeParagraph()} color="error">
+                                    <DeleteIcon/>
+                                </IconButton>
+                            </Tooltip>
                         </Stack>
                         <Stack direction='row' spacing={10} justifyContent="space-between">
                             <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)}/>
@@ -151,26 +198,10 @@ export default function Add() {
                         </Stack>
                     </Stack>
                 </Container>
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
-                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                        Post was created!
-                    </Alert>
-                </Snackbar>
-                <Snackbar open={emptyError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                        Looks like there was an error try again!
-                    </Alert>
-                </Snackbar>
-                <Snackbar open={wrongCredentialsError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                        Wrong credentials!
-                    </Alert>
-                </Snackbar>
-                <Snackbar open={deleteError} autoHideDuration={6000} onClose={handleClose} anchorOrigin={position}>
-                    <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                        Can't delete all paragraphs!
-                    </Alert>
-                </Snackbar>
+                {postCreatedAlert}
+                {postEmptyAlert}
+                {wrongCredentialsAlert}
+                {deleteParagraphAlert}
             </Container>
         </ThemeProvider>
     )
