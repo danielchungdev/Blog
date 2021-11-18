@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid, Badge, Card, CardActions, CardContent, Button, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { useNavigate } from 'react-router-dom';
 
 export default function PostCards(props) {
