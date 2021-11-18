@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
 import { Container, Typography, Stack, LinearProgress } from '@mui/material'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 export default function Post(props) {
 
@@ -10,20 +10,28 @@ export default function Post(props) {
     const [post, setPost] = useState(null)
 
     useEffect(() => {
-        console.log("hello from useeffect")
-        //TODO GET DATA WITH POST ID
         fetch('http://localhost:4000/getpost/' + id, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
         })
-        .then(res => res.json())
+        .then(res => { 
+            if (res.status === 200){
+                return res.json()
+            }
+        })
         .then(data => {
-            console.log(data)
-            setPost(data)
+            if (data === undefined){
+                navigate("/notfound")
+            }
+            else{
+                setPost(data)
+            }
         })
     }, [])
+
+    const navigate = useNavigate()
 
     return (
         <ThemeProvider theme={DchungTheme}>

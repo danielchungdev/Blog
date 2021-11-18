@@ -66,7 +66,7 @@ app.get('/getpost/:id', (req, res) => {
 	client.connect( async(err) => {
 		const collection = client.db("Blog").collection("Posts");
 		let post = await collection.findOne({number: parseInt(postNumber)});
-		if (post !== undefined){
+		if (post !== null){
 			console.log(post)
 			res.send(post)
 		}
