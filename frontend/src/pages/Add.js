@@ -5,7 +5,7 @@ import { DchungTheme } from '../assets/DchungTheme'
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Container, Stack, TextField, TextareaAutosize, Button, Alert, Snackbar, Typography, Tooltip, IconButton } from '@mui/material'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Add() {
 
@@ -82,7 +82,7 @@ export default function Add() {
         e.preventDefault()
         resetErrors()
         if (handleErrors()){
-            fetch('http://localhost:4000/createpost', {
+            fetch('https://pikachunggapi.herokuapp.com/createpost', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -11,7 +11,7 @@ export default function Post(props) {
     const [post, setPost] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:4000/getpost/' + id, {
+        fetch('https://pikachunggapi.herokuapp.com/getpost/' + id, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

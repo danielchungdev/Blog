@@ -19,11 +19,10 @@ export default function Home() {
     const [loading, setLoading] = useState(true)
     const [allPosts, setAllPosts] = useState([])
     const [totalPaginations, setTotalPaginations] = useState(0)
-    const [shouldUpdate, setShouldUpdate] = useState(0)
 
     useEffect(() => {
         pagination(1)
-        fetch('http://localhost:4000/getposts', {
+        fetch('https://pikachunggapi.herokuapp.com/getposts', {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
