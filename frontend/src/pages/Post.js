@@ -52,7 +52,7 @@ export default function Post(props) {
                     <Typography >BODY:</Typography>
                     {
                         post.body.map((element, index) => (
-                            <Typography variant='h6' key={index}>{post.body[index].text}</Typography>
+                            <Typography variant='h6' key={index} marginBottom={5}>{post.body[index].text}</Typography>
                         ))
                     }
                 </Container>
