@@ -19,6 +19,7 @@ export default function Home() {
     const [loading, setLoading] = useState(true)
     const [allPosts, setAllPosts] = useState([])
     const [totalPaginations, setTotalPaginations] = useState(0)
+    const [shouldUpdate, setShouldUpdate] = useState(0)
 
     useEffect(() => {
         pagination(1)
