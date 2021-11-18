@@ -11,6 +11,8 @@ export default function PostCards(props) {
 
     const {data} = props
 
+    console.log(data)
+
     const navigate = useNavigate()
 
     const goToPost = () => {

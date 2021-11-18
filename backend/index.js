@@ -61,10 +61,21 @@ app.get('/getposts', (req, res)=> {
 	})
 })
 
-app.get('/post/:id', (req, res) => {
-	
+app.get('/getpost/:id', (req, res) => {
+	let postNumber = req.params.id;
+	client.connect( async(err) => {
+		const collection = client.db("Blog").collection("Posts");
+		let post = await collection.findOne({number: parseInt(postNumber)});
+		if (post !== undefined){
+			console.log(post)
+			res.send(post)
+		}
+		else{
+			res.sendStatus(404)
+		}
+	})
 })
 
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`)
+	console.log(`Blog app is running at http://localhost:${port}`)
 })
