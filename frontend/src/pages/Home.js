@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import PostCards from '../components/PostCards'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
-import { Container, Grid, Pagination, Typography } from '@mui/material'
+import { Container, Grid, Pagination, Typography, Link } from '@mui/material'
 // import Data from '../assets/test.json' //test purposes
 
 const paginationStyles = {
@@ -65,6 +65,7 @@ export default function Home() {
     return (
         <ThemeProvider theme={DchungTheme}>
             <Container maxWidth="lg" wrap="wrap">
+                <Link href="/add">Add</Link>
                <Header/>
                 {loading ? <Typography>Loading...</Typography> : postsFlex}
                 {posts.length < 1 ? nothingToSeeHere : null}
