@@ -64,7 +64,7 @@ export default function Home() {
 
     return (
         <ThemeProvider theme={DchungTheme}>
-            <Container maxWidth="lg" wrap="wrap">
+            <Container maxWidth="md" wrap="wrap">
                <Header/>
                 {loading ? <Typography>Loading...</Typography> : postsFlex}
                 {posts.length < 1 ? nothingToSeeHere : null}

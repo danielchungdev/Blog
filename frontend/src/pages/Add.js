@@ -159,45 +159,43 @@ export default function Add() {
 
     return (
         <ThemeProvider theme={DchungTheme}>
-            <Container maxWidth="lg" sx={{marginBottom: "5%"}}>
+            <Container maxWidth="md">
                 <Header/>
-                <Container maxWidth="md">
-                    <Stack spacing={2}>
-                        <TextField id="standard-basic" label="Title" variant="standard" onChange={(e) => setTitle(e.target.value)}/>
-                        <Typography>Date: {date}</Typography>
-                        <TextField id="standard-basic" label="Description" variant="standard" onChange={e => setDescription(e.target.value)}/>
-                        {
-                            body.map((element, index) => (
-                                <TextareaAutosize
-                                    key={index}
-                                    aria-label="minimum height"
-                                    minRows={10}
-                                    placeholder="Paragraph"
-                                    style={{ width: '100%' }}
-                                    onChange={e => handleChange(index, e)}
-                                />
-                            ))
-                        }
-                        
-                        <Stack direction="row" justifyContent="center">
-                            <Tooltip title="Add paragraph">
-                                <IconButton onClick={()=> addParagraphs()} color="success">
-                                    <AddIcon/>
-                                </IconButton>
-                            </Tooltip>
-                            <Tooltip title="Delete paragraph">
-                                <IconButton onClick={() => removeParagraph()} color="error">
-                                    <DeleteIcon/>
-                                </IconButton>
-                            </Tooltip>
-                        </Stack>
-                        <Stack direction='row' spacing={10} justifyContent="space-between">
-                            <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)}/>
-                            <TextField label="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
-                            <Button variant="outlined" onClick={handlePost} sx={{width: '30%'}}>Post</Button>
-                        </Stack>
+                <Stack spacing={2}>
+                    <TextField id="standard-basic" label="Title" variant="standard" onChange={(e) => setTitle(e.target.value)}/>
+                    <Typography>Date: {date}</Typography>
+                    <TextField id="standard-basic" label="Description" variant="standard" onChange={e => setDescription(e.target.value)}/>
+                    {
+                        body.map((element, index) => (
+                            <TextareaAutosize
+                                key={index}
+                                aria-label="minimum height"
+                                minRows={10}
+                                placeholder="Paragraph"
+                                style={{ width: '100%' }}
+                                onChange={e => handleChange(index, e)}
+                            />
+                        ))
+                    }
+                    
+                    <Stack direction="row" justifyContent="center">
+                        <Tooltip title="Add paragraph">
+                            <IconButton onClick={()=> addParagraphs()} color="success">
+                                <AddIcon/>
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Delete paragraph">
+                            <IconButton onClick={() => removeParagraph()} color="error">
+                                <DeleteIcon/>
+                            </IconButton>
+                        </Tooltip>
                     </Stack>
-                </Container>
+                    <Stack direction='row' spacing={10} justifyContent="space-between">
+                        <TextField id="outlined-basic" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)}/>
+                        <TextField label="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                        <Button variant="outlined" onClick={handlePost} sx={{width: '30%'}}>Post</Button>
+                    </Stack>
+                </Stack>
                 {postCreatedAlert}
                 {postEmptyAlert}
                 {wrongCredentialsAlert}

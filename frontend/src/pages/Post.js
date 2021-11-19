@@ -37,7 +37,7 @@ export default function Post(props) {
     return (
         <ThemeProvider theme={DchungTheme}>
             {post === null ? <LinearProgress/> : 
-                <Container maxWidth="lg">
+                <Container maxWidth="md">
                     <Stack direction="row" justifyContent="space-between" marginBottom={15}>
                         <Breadcrumbs>
                             <Link underline="hover" color="inherit" href="/"><Typography>HOME</Typography></Link>
@@ -49,10 +49,9 @@ export default function Post(props) {
                     <Typography variant='h4'>{post.title}</Typography>
                     <Typography >DATE:</Typography>
                     <Typography variant='h6' marginBottom={5}>{post.date}</Typography>
-                    <Typography >BODY:</Typography>
                     {
                         post.body.map((element, index) => (
-                            <Typography variant='h6' key={index} marginBottom={5}>{post.body[index].text}</Typography>
+                            <Typography key={index} marginBottom={5}>{post.body[index].text}</Typography>
                         ))
                     }
                 </Container>
