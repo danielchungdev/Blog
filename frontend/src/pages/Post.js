@@ -3,6 +3,7 @@ import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
 import { Container, Typography, Stack, LinearProgress, Breadcrumbs, Link } from '@mui/material'
 import { useParams, useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 export default function Post(props) {
 
@@ -43,7 +44,7 @@ export default function Post(props) {
                             <Link underline="hover" color="inherit" href="/"><Typography>HOME</Typography></Link>
                             <Typography color="primary">POST: {post.number}</Typography>
                         </Breadcrumbs>
-                        <Typography>ID: {post.id}</Typography>
+                        <Typography>ID: {post.id.toString().slice(0, 8)}</Typography>
                     </Stack>
                     <Typography >TITLE:</Typography>
                     <Typography variant='h4'>{post.title}</Typography>
@@ -56,6 +57,7 @@ export default function Post(props) {
                     }
                 </Container>
             }
+            <Footer/>
         </ThemeProvider>
     )
 }
