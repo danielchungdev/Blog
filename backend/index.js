@@ -76,6 +76,15 @@ app.get('/getpost/:id', (req, res) => {
 	})
 })
 
+app.put('/visit/:id', (req, res) => {
+	let postNumber = req.params.id;
+	client.connect( async(err) => {
+		const collection = client.db("Blog").collection("Posts");
+		await collection.updateOne({number: parseInt(postNumber)}, {$inc: {visits: 1}})
+	})
+	res.send(200)
+})
+
 app.listen(port, () => {
 	console.log(`Blog app is running at http://localhost:${port}`)
 })

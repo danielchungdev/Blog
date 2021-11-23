@@ -31,7 +31,23 @@ export default function Post(props) {
                 setPost(data)
             }
         })
+
+        logVisitor()
     }, [])
+
+    const logVisitor = () => {
+        fetch('https://pikachunggapi.herokuapp.com/visit/' + id, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+        })
+        .then(res => { 
+            if (res.status === 200){
+                console.log('success')
+            }
+        })
+    }
 
     const navigate = useNavigate()
 
@@ -57,7 +73,7 @@ export default function Post(props) {
                     }
                 </Container>
             }
-            <Footer/>
+            {post === null ? null : <Footer/>}  
         </ThemeProvider>
     )
 }

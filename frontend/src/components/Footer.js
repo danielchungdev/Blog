@@ -14,8 +14,13 @@ export default function Footer() {
         horizontal: "center"
     }
 
+    const validateEmail = () => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(mail);
+    }
+
     const handleSubmit = () => {
-        if (mail !== ""){
+        if (mail !== "" && validateEmail()){
             setEmailSuccess(true)
         }
         else{
