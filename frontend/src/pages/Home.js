@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import PostCards from '../components/PostCards'
 import { ThemeProvider } from '@emotion/react'
 import { DchungTheme } from '../assets/DchungTheme'
-import { Container, Grid, Pagination, Typography, CircularProgress } from '@mui/material'
+import { Container, Grid, Pagination, CircularProgress } from '@mui/material'
 // import Data from '../assets/test.json' //test purposes
 
 const paginationStyles = {
@@ -43,12 +43,6 @@ export default function Home() {
         setTotalPaginations(Math.ceil(totalPaginations / postPerPage))
     }
 
-    const nothingToSeeHere = (
-        <Grid>
-            <Typography>Oops nothing to see here :(</Typography>
-        </Grid>
-    )
-
     const loadingContainer = (
         <Grid 
             container
@@ -78,7 +72,6 @@ export default function Home() {
             <Container maxWidth="md" wrap="wrap">
                <Header/>
                 {loading ? loadingContainer : postsFlex}
-                {posts.length < 1 && loading === false ? nothingToSeeHere : null}
             </Container>
         </ThemeProvider>
     )

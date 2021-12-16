@@ -5,7 +5,7 @@ import { Container, Typography, Stack, LinearProgress, Breadcrumbs, Link } from 
 import { useParams, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 
-export default function Post(props) {
+export default function Post() {
 
     let { id } = useParams()
     
