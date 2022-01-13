@@ -12,7 +12,7 @@ export default function Header() {
         <Box sx={outerContainer}>
             <Link to="/" className='header--title'><Typography variant='h5'>Daniel Chung's Archive</Typography></Link>
             <Box>
-                <Typography>Currently I'm a Cloud Engineer Intern @ Mindex and a 5th Year Web & Mobile Computing major @ RIT. Here I'll document my journey as a fullstack web developer. </Typography>
+                <Typography>Currently I'm a 5th Year Web & Mobile Computing major @ RIT specializing on web technologies. Here I'll document my journey as a fullstack web developer. </Typography>
             </Box>
         </Box>
     )
